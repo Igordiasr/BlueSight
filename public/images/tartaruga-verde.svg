@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Tartaruga-verde</title>
+  <desc id="desc">Ilustração de uma tartaruga-verde nadando em águas azuis.</desc>
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#027fa5"/><stop offset=".55" stop-color="#075574"/><stop offset="1" stop-color="#022b44"/></linearGradient>
+    <radialGradient id="light" cx="48%" cy="-5%" r="85%"><stop stop-color="#8ff6f1" stop-opacity=".8"/><stop offset=".4" stop-color="#12b8d1" stop-opacity=".18"/><stop offset="1" stop-color="#001c33" stop-opacity="0"/></radialGradient>
+    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b4c76b"/><stop offset=".45" stop-color="#678b48"/><stop offset="1" stop-color="#244c39"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8c985"/><stop offset="1" stop-color="#55795b"/></linearGradient>
+    <pattern id="scales" width="42" height="36" patternUnits="userSpaceOnUse"><path d="M1 18 11 2h20l10 16-10 16H11Z" fill="none" stroke="#294f39" stroke-width="3" opacity=".45"/></pattern>
+    <filter id="shadow"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="900" height="560" fill="url(#sea)"/>
+  <rect width="900" height="560" fill="url(#light)"/>
+  <g fill="none" stroke="#b3ffff" stroke-opacity=".16" stroke-width="8">
+    <path d="M-40 90c170-70 310 35 480-25s300-20 500 25"/><path d="M-50 130c200-65 330 35 500-20s300-5 500 45"/>
+  </g>
+  <g opacity=".28" fill="#bdf8f3"><circle cx="105" cy="180" r="8"/><circle cx="130" cy="145" r="4"/><circle cx="765" cy="116" r="7"/><circle cx="790" cy="80" r="4"/><circle cx="808" cy="55" r="2"/></g>
+  <ellipse cx="470" cy="444" rx="255" ry="42" fill="#001a2d" opacity=".42" filter="url(#shadow)"/>
+  <g transform="translate(60 28) rotate(-4 440 270)">
+    <path d="M303 202C220 125 137 123 80 156c-39 23-46 59-22 74 28 18 84-1 148 20Z" fill="url(#skin)" stroke="#315b49" stroke-width="8"/>
+    <path d="M314 340c-94 84-183 92-241 62-42-21-53-58-30-75 27-21 85-6 153-32Z" fill="url(#skin)" stroke="#315b49" stroke-width="8"/>
+    <path d="M578 198c90-66 164-56 207-22 29 23 29 51 6 62-30 14-73-8-134 12Z" fill="url(#skin)" stroke="#315b49" stroke-width="8"/>
+    <path d="M578 341c84 58 151 48 187 17 24-21 22-46 1-55-27-12-65 7-120-10Z" fill="url(#skin)" stroke="#315b49" stroke-width="8"/>
+    <path d="M250 273c0-119 105-210 231-197 120 13 192 104 172 221-19 110-104 164-218 153-109-11-185-75-185-177Z" fill="url(#shell)" stroke="#263f31" stroke-width="12"/>
+    <path d="M276 258c16-88 94-153 190-154 93-1 157 61 165 151-2 89-69 158-169 168-102 10-185-60-186-165Z" fill="url(#scales)"/>
+    <path d="M452 102c-39 77-44 183-8 318M303 178c94 48 206 51 307 1M279 310c101-32 227-28 351 14" fill="none" stroke="#d4d98b" stroke-opacity=".45" stroke-width="8"/>
+    <path d="M646 236c57-37 121-29 154 11 30 36 11 84-40 104-51 20-96-6-125-44Z" fill="url(#skin)" stroke="#315b49" stroke-width="8"/>
+    <path d="M689 252c28-11 57-5 74 16-25 7-48 6-74-16Zm29 67c23 6 43 1 59-15-22-3-42 1-59 15Z" fill="#d9df9b" opacity=".55"/>
+    <circle cx="769" cy="276" r="9" fill="#071d20"/><circle cx="772" cy="273" r="2.5" fill="#fff"/>
+    <path d="M799 303c-13 7-25 8-37 3" fill="none" stroke="#294638" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g fill="#062b42" opacity=".72"><path d="m92 474 17-46 17 46 22-66 19 66 21-36 17 36Z"/><path d="m742 489 18-62 19 62 27-83 21 83 21-46 18 46Z"/></g>
+</svg>
