@@ -439,20 +439,4 @@ O mesmo padrão foi aplicado a:
 - O título da página vive em `.figma/make/site.json`, **não** em `index.html` — o placeholder `<!-- figma:title -->` é substituído no build pelo plugin `figmaSiteConfiguration`.
 - Se novas entidades forem adicionadas em `src/entities/`, seguir o formato de tupla definido em `src/shared/types.ts` (a ordem dos campos está no comentário JSDoc de cada tipo).
 
-## 8. Utilização de MCP
 
-Utilizamos o WebAbility MCP para garantir que o contraste entre a cor da fonte escolhida e a cor de fundo estejam de acordo com as diretrizes internacionais WCAG. Além da correção de contraste, aproveitamos para aprender como utilizar esse MCP para garantir a acessibilidade em nosso projeto de PI. 
-
-Durante a utilização do MCP, foram realizados ajustes na estrutura semântica do HTML, no contraste das cores, na legibilidade dos textos, na navegação por teclado, nos atributos ARIA e na responsividade da página.
-
-Após as correções, as verificações automatizadas apresentaram os seguintes resultados:
-
-- Redução de 10 para 0 combinações de cores abaixo do contraste exigido.
-
-- Eliminação das violações identificadas nas verificações de acessibilidade e atributos ARIA.
-
-- Correção de 22 erros de tipagem TypeScript.
-
-- Eliminação da rolagem horizontal indesejada nos tamanhos de tela testados.
-
-- Implementação de melhorias na navegação por teclado e na identificação dos elementos por leitores de tela.

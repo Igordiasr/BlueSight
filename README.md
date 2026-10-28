@@ -50,3 +50,21 @@ Por fim, solicitamos a alteração do logotipo para o logotipo que geramos junto
 ### Resultado final
 
 Gostamos muito do resultado, mesmo com pouco tempo, tivemos a oportunidade de gerar uma landing page moderna e responsiva em poucas horas. Com mais tempo poderíamos utilizar esse conhecimento para acelerar nosso desenvolvimento e aprendizado, nos aprofundando na integração com o back-end da aplicação.
+
+## Utilização de MCP - Atualização da atividade
+
+Utilizamos o WebAbility MCP para garantir que o contraste entre a cor da fonte escolhida e a cor de fundo estejam de acordo com as diretrizes internacionais WCAG. Além da correção de contraste, aproveitamos para aprender como utilizar esse MCP para garantir a acessibilidade em nosso projeto de PI. 
+
+Durante a utilização do MCP, foram realizados ajustes na estrutura semântica do HTML, no contraste das cores, na legibilidade dos textos, na navegação por teclado, nos atributos ARIA e na responsividade da página.
+
+Após as correções, as verificações automatizadas apresentaram os seguintes resultados:
+
+- Redução de 10 para 0 combinações de cores abaixo do contraste exigido.
+
+- Eliminação das violações identificadas nas verificações de acessibilidade e atributos ARIA.
+
+- Correção de 22 erros de tipagem TypeScript.
+
+- Eliminação da rolagem horizontal indesejada nos tamanhos de tela testados.
+
+- Implementação de melhorias na navegação por teclado e na identificação dos elementos por leitores de tela.
