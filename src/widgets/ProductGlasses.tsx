@@ -1,5 +1,3 @@
-import { type ReactNode } from 'react'
-
 export function ProductGlasses() {
   return (
     <svg className="glasses" viewBox="0 0 760 420" role="img" aria-label="Representação conceitual dos óculos inteligentes BlueSight">
@@ -21,3 +19,4 @@ export function ProductGlasses() {
       <path d="M478 152c55-6 112 5 157 33" fill="none" stroke="#fff" strokeOpacity=".2" strokeWidth="9" strokeLinecap="round"/>
     </svg>
   )
+}

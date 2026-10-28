@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "webability": {
+        "type": "remote",
+        "url": "https://mcp.webability.io/mcp"
+      }
+    }
+  }
+}

@@ -1,6 +1,4 @@
-import { useState, type ReactNode } from 'react'
 import { useMenu } from './features/useMenu'
-import { ProductGlasses } from './widgets/ProductGlasses'
 import { ProductPhoto } from './widgets/ProductPhoto'
 import { benefits } from './entities/benefits'
 import { steps } from './entities/steps'
@@ -83,10 +81,11 @@ const Tech = tech
 const Faqs = faqs
 
 export default function App() {
-  const { menuOpen, toggleMenu } = useMenu()
+  const { menuOpen, toggleMenu, closeMenu } = useMenu()
 
   return (
-    <main>
+    <>
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="site-header">
         <div className="nav-wrap">
           <Logo />
@@ -95,379 +94,382 @@ export default function App() {
             onClick={toggleMenu}
             aria-expanded={menuOpen}
             aria-controls="main-nav"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             <span />
             <span />
             <span />
-            <span className="sr-only">Abrir menu</span>
           </button>
           <nav
             id="main-nav"
             className={menuOpen ? 'open' : ''}
-            aria-label="Navegacao principal"
+            aria-label="Navegação principal"
           >
-            <a href="#produto" onClick={toggleMenu}>O produto</a>
-            <a href="#como-funciona" onClick={toggleMenu}>Como funciona</a>
-            <a href="#beneficios" onClick={toggleMenu}>Beneficios</a>
-            <a href="#faq" onClick={toggleMenu}>FAQ</a>
+            <a href="#produto" onClick={closeMenu}>O produto</a>
+            <a href="#como-funciona" onClick={closeMenu}>Como funciona</a>
+            <a href="#beneficios" onClick={closeMenu}>Benefícios</a>
+            <a href="#faq" onClick={closeMenu}>FAQ</a>
           </nav>
-          <a className="nav-cta" href="#oferta">Conheca o BlueSight</a>
+          <a className="nav-cta" href="#oferta">Conheça o BlueSight</a>
         </div>
       </header>
 
-      <section className="hero" id="inicio">
-        <img src={PhotoAssets.hero} alt="" className="hero-photo" />
-        <div className="hero-overlay" />
-        <div className="hero-grid container">
-          <div className="hero-copy">
-            <p className="eyebrow"><span/> Uma nova forma de explorar</p>
-            <h1>Explore o oceano.<br/><em>Conheca cada vida.</em></h1>
-            <p className="hero-lead">
-              Oculos inteligentes que identificam a vida marinha, registram suas descobertas e exibem informacoes em tempo real.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="#oferta">
-                Descubra o BlueSight
-              </a>
-              <a className="text-link" href="#como-funciona">
-                <Icon name="play" size={22} /> Veja como funciona</a>
-            </div>
-          </div>
-          <div className="hud-card" aria-label="Exemplo conceitual da interface na lente">
-            <div className="hud-top">
-              <span>IDENTIFICACAO ATIVA</span>
-              <b>● REC</b>
-            </div>
-            <div className="hud-target">
-              <img
-                src="/images/tartaruga-verde-foto.png"
-                alt="Fotografia de uma tartaruga-verde nadando em um recife"
-              />
-              <span className="corner c1" />
-              <span className="corner c2" />
-              <span className="corner c3" />
-              <span className="corner c4" />
-              <div className="hud-species">
-                <p>ESPÉCIE DETECTADA</p>
-                <strong>Tartaruga-verde</strong>
-                <i>Chelonia mydas · 96%</i>
+      <main id="conteudo" tabIndex={-1}>
+        <section className="hero" id="inicio">
+          <img src={PhotoAssets.hero} alt="" className="hero-photo" />
+          <div className="hero-overlay" />
+          <div className="hero-grid container">
+            <div className="hero-copy">
+              <p className="eyebrow"><span/> Uma nova forma de explorar</p>
+              <h1>Explore o oceano.<br/><em>Conheça cada vida.</em></h1>
+              <p className="hero-lead">
+                Óculos inteligentes que identificam a vida marinha, registram suas descobertas e exibem informações em tempo real.
+              </p>
+              <div className="hero-actions">
+                <a className="button primary" href="#oferta">
+                  Descubra o BlueSight
+                </a>
+                <a className="text-link" href="#como-funciona">
+                  <Icon name="play" size={22} /> Veja como funciona</a>
               </div>
             </div>
-            <div className="hud-stats">
-              <div>
-                <small>PROFUNDIDADE</small>
-                <b>12,4 m</b>
+            <div className="hud-card" role="group" aria-label="Exemplo conceitual da interface na lente">
+              <div className="hud-top">
+                <span>IDENTIFICAÇÃO ATIVA</span>
+                <b>● REC</b>
               </div>
-              <div>
-                <small>TEMPERATURA</small>
-                <b>26,7 °C</b>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="#proposta" className="scroll-cue" aria-label="Ir para a próxima seção">
-          <span/> EXPLORE
-        </a>
-      </section>
-
-      <section className="intro light-section" id="proposta">
-        <div className="container intro-grid">
-          <div>
-            <p className="section-kicker">SOBRE O BLUESIGHT</p>
-            <h2>Mais do que enxergar.<br/>É explorar de verdade.</h2>
-          </div>
-          <div className="intro-copy">
-            <p>
-              O BlueSight transforma seu mergulho em uma experiência interativa, aproximando você da vida marinha com inteligencia artificial, realidade aumentada e registro audiovisual.
-            </p>
-            <a href="#recursos">Conheça os recursos</a>
-          </div>
-        </div>
-        <div className="container stats-row">
-          <div>
-            <strong>360°</strong>
-            <span>de experiência<br/>integrada</span>
-          </div>
-          <div>
-            <strong>IA</strong>
-            <span>identificação<br/>assistida</span>
-          </div>
-          <div>
-            <strong>4K</strong>
-            <span>registro<br/>audiovisual</span>
-          </div>
-          <div>
-            <strong>AR</strong>
-            <span>informações<br/>na lente</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="benefits dark-section" id="beneficios">
-        <div className="container">
-          <div className="section-heading">
-            <p className="section-kicker cyan">POR QUE BLUESIGHT</p>
-            <h2>Seu mergulho, <em>mais completo.</em></h2>
-            <p>Descubra, registre e aprenda em cada exploração.</p>
-          </div>
-          <div className="benefit-grid">
-            {Benefits.map(([icon, title, text], index) => (
-              <article className="benefit-card" key={title}>
-                <span className="card-number">0{index + 1}</span>
-                <div className="icon-box">
-                  <Icon name={icon} />
+              <div className="hud-target">
+                <img
+                  src="/images/tartaruga-verde-foto.png"
+                  alt="Fotografia de uma tartaruga-verde nadando em um recife"
+                />
+                <span className="corner c1" />
+                <span className="corner c2" />
+                <span className="corner c3" />
+                <span className="corner c4" />
+                <div className="hud-species">
+                  <p>ESPÉCIE DETECTADA</p>
+                  <strong>Tartaruga-verde</strong>
+                  <i>Chelonia mydas · 96%</i>
                 </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="how light-section" id="como-funciona">
-        <div className="container how-grid">
-          <div className="sticky-copy">
-            <p className="section-kicker">COMO FUNCIONA</p>
-            <h2>Sua próxima descoberta está a <em>um mergulho de distância.</em></h2>
-            <div className="how-photo">
-              <img src={PhotoAssets.diver} alt="Mergulhador explorando um recife de corais" />
-              <div className="photo-badge">
-                <Icon name="waves" /> Tecnologia que mergulha com você
+              </div>
+              <div className="hud-stats">
+                <div>
+                  <small>PROFUNDIDADE</small>
+                  <b>12,4 m</b>
+                </div>
+                <div>
+                  <small>TEMPERATURA</small>
+                  <b>26,7 °C</b>
+                </div>
               </div>
             </div>
           </div>
-          <ol className="steps">
-            {Steps.map(([number, title, text]) => (
-              <li key={number}>
-                <span>{number}</span>
-                <div>
+          <a href="#proposta" className="scroll-cue" aria-label="EXPLORE — ir para a próxima seção">
+            <span/> EXPLORE
+          </a>
+        </section>
+
+        <section className="intro light-section" id="proposta">
+          <div className="container intro-grid">
+            <div>
+              <p className="section-kicker">SOBRE O BLUESIGHT</p>
+              <h2>Mais do que enxergar.<br/>É explorar de verdade.</h2>
+            </div>
+            <div className="intro-copy">
+              <p>
+                O BlueSight transforma seu mergulho em uma experiência interativa, aproximando você da vida marinha com inteligência artificial, realidade aumentada e registro audiovisual.
+              </p>
+              <a href="#recursos">Conheça os recursos</a>
+            </div>
+          </div>
+          <div className="container stats-row">
+            <div>
+              <strong>360°</strong>
+              <span>de experiência<br/>integrada</span>
+            </div>
+            <div>
+              <strong>IA</strong>
+              <span>identificação<br/>assistida</span>
+            </div>
+            <div>
+              <strong>4K</strong>
+              <span>registro<br/>audiovisual</span>
+            </div>
+            <div>
+              <strong>AR</strong>
+              <span>informações<br/>na lente</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="benefits dark-section" id="beneficios">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker cyan">POR QUE BLUESIGHT</p>
+              <h2>Seu mergulho, <em>mais completo.</em></h2>
+              <p>Descubra, registre e aprenda em cada exploração.</p>
+            </div>
+            <div className="benefit-grid">
+              {Benefits.map(([icon, title, text], index) => (
+                <article className="benefit-card" key={title}>
+                  <span className="card-number">0{index + 1}</span>
+                  <div className="icon-box">
+                    <Icon name={icon} />
+                  </div>
                   <h3>{title}</h3>
                   <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="how light-section" id="como-funciona">
+          <div className="container how-grid">
+            <div className="sticky-copy">
+              <p className="section-kicker">COMO FUNCIONA</p>
+              <h2>Sua próxima descoberta está a <em>um mergulho de distância.</em></h2>
+              <div className="how-photo">
+                <img src={PhotoAssets.diver} alt="Mergulhador explorando um recife de corais" />
+                <div className="photo-badge">
+                  <Icon name="waves" /> Tecnologia que mergulha com você
                 </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+              </div>
+            </div>
+            <ol className="steps">
+              {Steps.map(([number, title, text]) => (
+                <li key={number}>
+                  <span>{number}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
 
-      <section className="technology dark-section" id="recursos">
-        <div className="container">
-          <div className="section-heading split-heading">
-            <div>
-              <p className="section-kicker cyan">RECURSOS</p>
-              <h2>Tecnologia que acompanha <em>seu mergulho.</em></h2>
-            </div>
-            <p>
-              Recursos integrados para transformar observação em conhecimento e cada encontro em uma memória.
-            </p>
-          </div>
-          <div className="tech-grid">
-            {Tech.map(([icon, title, text], i) => (
-              <article
-                className={`tech-card tech-${i + 1}`}
-                key={title}
-              >
-                <Icon name={icon} size={30} />
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <span>0{i + 1}</span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="product" id="produto">
-        <div className="container">
-          <div className="section-heading centered">
-            <p className="section-kicker">DESIGN DO PRODUTO</p>
-            <h2>Projetado para quem quer <em>descobrir mais.</em></h2>
-          </div>
-          <div className="product-layout">
-            <ProductPhoto />
-            <div className="product-topics" aria-label="Recursos do produto">
-              <article>
-                <b>01</b>
-                <span>
-                  <strong>Display integrado à lente</strong>
-                  <small>Dados visíveis em tempo real durante toda a exploração.</small>
-                </span>
-              </article>
-              <article>
-                <b>02</b>
-                <span>
-                  <strong>Câmera integrada</strong>
-                  <small>Fotos e vídeos em alta resolução sem interromper o mergulho.</small>
-                </span>
-              </article>
-              <article>
-                <b>03</b>
-                <span>
-                  <strong>Sensores ambientais</strong>
-                  <small>Leitura de profundidade e temperatura da água.</small>
-                </span>
-              </article>
-              <article>
-                <b>04</b>
-                <span>
-                  <strong>Interface inteligente</strong>
-                  <small>Informações essenciais organizadas de forma clara e acessível.</small>
-                </span>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="memories dark-section">
-        <div className="container">
-          <div className="section-heading split-heading">
-            <div>
-              <p className="section-kicker cyan">SUAS DESCOBERTAS</p>
-              <h2>Cada encontro merece <em>ser lembrado.</em></h2>
-            </div>
-            <p>
-              Capture imagens, registre vídeos e reúna informações para revisitar suas experiências.
-            </p>
-          </div>
-          <div className="gallery">
-            <figure className="gallery-main">
-              <img
-                src={PhotoAssets.reef}
-                alt="Mergulhador sobre um recife colorido"
-              />
-              <figcaption>
-                <Icon name="camera" /> FOTOS <b>01</b>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src={PhotoAssets.camera} alt="Mergulhadora registrando a vida marinha" />
-              <figcaption>
-                <Icon name="play" /> VÍDEOS <b>02</b>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src={PhotoAssets.fish} alt="Vida marinha em águas tropicais" />
-              <figcaption>
-                <Icon name="archive" /> REGISTROS <b>03</b>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="difference light-section">
-        <div className="container difference-grid">
-          <div>
-            <p className="section-kicker">UMA EXPERIÊNCIA INTEGRADA</p>
-            <h2>Sua exploração conectada à <em>descoberta.</em></h2>
-            <p className="large-copy">
-              O BlueSight reúne identificação assistida por IA, informações visuais, registro audiovisual e dados ambientais em um só equipamento.
-            </p>
-          </div>
-          <div className="difference-list">
-            <div>
-              <Icon name="eye" />
-              <span>
-                <b>Informações durante o mergulho</b>
-                <small>Aprenda enquanto explora</small>
-              </span>
-            </div>
-            <div>
-              <Icon name="camera" />
-              <span>
-                <b>Registro audiovisual integrado</b>
-                <small>Guarde sem interromper a jornada</small>
-              </span>
-            </div>
-            <div>
-              <Icon name="spark" />
-              <span>
-                <b>Recursos inteligentes</b>
-                <small>Tecnologia a serviço da descoberta</small>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonials">
-        <div className="container">
-          <div className="section-heading centered">
-            <p className="section-kicker cyan">POSSIBILIDADES</p>
-            <h2>Imagine o seu <em>próximo mergulho.</em></h2>
-          </div>
-          <div className="quote-grid">
-            <blockquote>
-              <span>“</span>
+        <section className="technology dark-section" id="recursos">
+          <div className="container">
+            <div className="section-heading split-heading">
+              <div>
+                <p className="section-kicker cyan">RECURSOS</p>
+                <h2>Tecnologia que acompanha <em>seu mergulho.</em></h2>
+              </div>
               <p>
-                Poder registrar minhas descobertas sem interromper a exploração mudaria a forma como vivencio cada mergulho.
+                Recursos integrados para transformar observação em conhecimento e cada encontro em uma memória.
               </p>
-              <footer>
-                <b>Mergulhador recreativo</b>
-                <small>PERFIL ILUSTRATIVO</small>
-              </footer>
-            </blockquote>
-            <blockquote>
-              <span>“</span>
-              <p>
-                Ter informações sobre a vida marinha ao alcance dos olhos tornaria cada encontro uma oportunidade de aprendizado.
-              </p>
-              <footer>
-                <b>Entusiasta da vida marinha</b>
-                <small>PERFIL ILUSTRATIVO</small>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <section className="offer" id="oferta">
-        <div className="container offer-card">
-          <div className="offer-copy">
-            <p className="section-kicker cyan">CONCEITO BLUESIGHT</p>
-            <h2>Prepare-se para uma nova forma de mergulhar.</h2>
-            <p>
-              Conheça o BlueSight e descubra como a tecnologia pode ampliar sua experiência de exploração subaquática.
-            </p>
-            <div className="price">
-              <small>A PARTIR DE</small>
-              <strong>R$ 4.999<sup>,99</sup></strong>
             </div>
-            <button className="button primary" type="button">Compre agora</button>
-            <small className="concept-note">
-              Produto conceitual. Condições comerciais ilustrativas.
-            </small>
+            <div className="tech-grid">
+              {Tech.map(([icon, title, text], i) => (
+                <article
+                  className={`tech-card tech-${i + 1}`}
+                  key={title}
+                >
+                  <Icon name={icon} size={30} />
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <span>0{i + 1}</span>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="offer-visual">
-            <ProductPhoto compact />
-            <div className="offer-ring" />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="faq light-section" id="faq">
-        <div className="container faq-grid">
-          <div>
-            <p className="section-kicker">FAQ</p>
-            <h2>Perguntas<br/>frequentes.</h2>
-            <p>
-              Ainda tem dúvidas? Reunimos as principais informações sobre o conceito BlueSight.
-            </p>
+        <section className="product" id="produto">
+          <div className="container">
+            <div className="section-heading centered">
+              <p className="section-kicker">DESIGN DO PRODUTO</p>
+              <h2>Projetado para quem quer <em>descobrir mais.</em></h2>
+            </div>
+            <div className="product-layout">
+              <ProductPhoto />
+              <div className="product-topics" role="group" aria-label="Recursos do produto">
+                <article>
+                  <b>01</b>
+                  <div>
+                    <h3>Display integrado à lente</h3>
+                    <small>Dados visíveis em tempo real durante toda a exploração.</small>
+                  </div>
+                </article>
+                <article>
+                  <b>02</b>
+                  <div>
+                    <h3>Câmera integrada</h3>
+                    <small>Fotos e vídeos em alta resolução sem interromper o mergulho.</small>
+                  </div>
+                </article>
+                <article>
+                  <b>03</b>
+                  <div>
+                    <h3>Sensores ambientais</h3>
+                    <small>Leitura de profundidade e temperatura da água.</small>
+                  </div>
+                </article>
+                <article>
+                  <b>04</b>
+                  <div>
+                    <h3>Interface inteligente</h3>
+                    <small>Informações essenciais organizadas de forma clara e acessível.</small>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
-          <div className="accordion">
-            {Faqs.map(([question, answer], i) => (
-              <details key={question} open={i === 0}>
-                <summary>
-                  <span>0{i + 1}</span>{question}<b>+</b>
-                </summary>
-                <p>{answer}</p>
-              </details>
-            ))}
+        </section>
+
+        <section className="memories dark-section">
+          <div className="container">
+            <div className="section-heading split-heading">
+              <div>
+                <p className="section-kicker cyan">SUAS DESCOBERTAS</p>
+                <h2>Cada encontro merece <em>ser lembrado.</em></h2>
+              </div>
+              <p>
+                Capture imagens, registre vídeos e reúna informações para revisitar suas experiências.
+              </p>
+            </div>
+            <div className="gallery">
+              <figure className="gallery-main">
+                <img
+                  src={PhotoAssets.reef}
+                  alt="Mergulhador sobre um recife colorido"
+                />
+                <figcaption>
+                  <Icon name="camera" /> FOTOS <b>01</b>
+                </figcaption>
+              </figure>
+              <figure>
+                <img src={PhotoAssets.camera} alt="Mergulhadora registrando a vida marinha" />
+                <figcaption>
+                  <Icon name="play" /> VÍDEOS <b>02</b>
+                </figcaption>
+              </figure>
+              <figure>
+                <img src={PhotoAssets.fish} alt="Vida marinha em águas tropicais" />
+                <figcaption>
+                  <Icon name="archive" /> REGISTROS <b>03</b>
+                </figcaption>
+              </figure>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="difference light-section">
+          <div className="container difference-grid">
+            <div>
+              <p className="section-kicker">UMA EXPERIÊNCIA INTEGRADA</p>
+              <h2>Sua exploração conectada à <em>descoberta.</em></h2>
+              <p className="large-copy">
+                O BlueSight reúne identificação assistida por IA, informações visuais, registro audiovisual e dados ambientais em um só equipamento.
+              </p>
+            </div>
+            <div className="difference-list">
+              <div>
+                <Icon name="eye" />
+                <div>
+                  <h3>Informações durante o mergulho</h3>
+                  <small>Aprenda enquanto explora</small>
+                </div>
+              </div>
+              <div>
+                <Icon name="camera" />
+                <div>
+                  <h3>Registro audiovisual integrado</h3>
+                  <small>Guarde sem interromper a jornada</small>
+                </div>
+              </div>
+              <div>
+                <Icon name="spark" />
+                <div>
+                  <h3>Recursos inteligentes</h3>
+                  <small>Tecnologia a serviço da descoberta</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="testimonials">
+          <div className="container">
+            <div className="section-heading centered">
+              <p className="section-kicker cyan">POSSIBILIDADES</p>
+              <h2>Imagine o seu <em>próximo mergulho.</em></h2>
+            </div>
+            <div className="quote-grid">
+              <blockquote>
+                <span>“</span>
+                <p>
+                  Poder registrar minhas descobertas sem interromper a exploração mudaria a forma como vivencio cada mergulho.
+                </p>
+                <footer>
+                  <b>Mergulhador recreativo</b>
+                  <small>PERFIL ILUSTRATIVO</small>
+                </footer>
+              </blockquote>
+              <blockquote>
+                <span>“</span>
+                <p>
+                  Ter informações sobre a vida marinha ao alcance dos olhos tornaria cada encontro uma oportunidade de aprendizado.
+                </p>
+                <footer>
+                  <b>Entusiasta da vida marinha</b>
+                  <small>PERFIL ILUSTRATIVO</small>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section className="offer" id="oferta">
+          <div className="container offer-card">
+            <div className="offer-copy">
+              <p className="section-kicker cyan">CONCEITO BLUESIGHT</p>
+              <h2>Prepare-se para uma nova forma de mergulhar.</h2>
+              <p>
+                Conheça o BlueSight e descubra como a tecnologia pode ampliar sua experiência de exploração subaquática.
+              </p>
+              <div className="price">
+                <small>A PARTIR DE</small>
+                <strong>R$ 4.999<sup>,99</sup></strong>
+              </div>
+              <button className="button primary" type="button" aria-describedby="nota-conceito">Compre agora</button>
+              <small className="concept-note" id="nota-conceito">
+                Produto conceitual. Condições comerciais ilustrativas.
+              </small>
+            </div>
+            <div className="offer-visual">
+              <ProductPhoto compact />
+              <div className="offer-ring" />
+            </div>
+          </div>
+        </section>
+
+        <section className="faq light-section" id="faq">
+          <div className="container faq-grid">
+            <div>
+              <p className="section-kicker">FAQ</p>
+              <h2>Perguntas<br/>frequentes.</h2>
+              <p>
+                Ainda tem dúvidas? Reunimos as principais informações sobre o conceito BlueSight.
+              </p>
+            </div>
+            <div className="accordion">
+              {Faqs.map(([question, answer], i) => (
+                <details key={question} open={i === 0}>
+                  <summary>
+                    <span>0{i + 1}</span>{question}<b>+</b>
+                  </summary>
+                  <p>{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
 
       <footer className="footer">
         <div className="container footer-top">
@@ -486,6 +488,6 @@ export default function App() {
           <span>© 2026 BLUESIGHT</span>
         </div>
       </footer>
-    </main>
+    </>
   )
 }

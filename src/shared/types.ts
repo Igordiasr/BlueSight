@@ -21,25 +21,14 @@ export interface PhotoAssets {
   camera: string
 }
 
-export interface Benefit {
-  icon: IconName
-  title: string
-  text: string
-}
+/** [icone, titulo, texto] */
+export type Benefit = readonly [IconName, string, string]
 
-export interface Step {
-  number: string
-  title: string
-  text: string
-}
+/** [numero, titulo, texto] */
+export type Step = readonly [string, string, string]
 
-export interface Tech {
-  icon: IconName
-  title: string
-  text: string
-}
+/** [icone, titulo, texto] */
+export type Tech = readonly [IconName, string, string]
 
-export interface Faq {
-  question: string
-  answer: string
-}
+/** [pergunta, resposta] */
+export type Faq = readonly [string, string]

@@ -1,5 +1,7 @@
 {
-  "description": "Create high-resolution screens based on specified layouts and rules, streamlining design processes for developers and designers.",
+  "title": "BlueSight — Óculos inteligentes de mergulho",
+  "language": "pt-BR",
+  "description": "Conceito de óculos de mergulho inteligentes com identificação de animais marinhos por IA, realidade aumentada, câmera integrada e sensores ambientais.",
   "robots": {
     "index": false
   },
